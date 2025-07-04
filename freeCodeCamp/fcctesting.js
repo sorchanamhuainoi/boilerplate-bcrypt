@@ -38,15 +38,16 @@
 const fs = require('fs');
 const cors = require('cors');
 
-const allowedOriginsMatcher = /^https?:\/\/([\w-]+\.)*freecodecamp\.org/;
+// const allowedOriginsMatcher = /^https?:\/\/([\w-]+\.)*freecodecamp\.org/;
 
 module.exports = function (app) {
   
   app.use(function (req, res, next) {
-      const origin = req.get('origin');
-      if(allowedOriginsMatcher.test(origin)) {
-        res.setHeader('Access-Control-Allow-Origin', origin);
-      }
+      // const origin = req.get('origin');
+      // if(allowedOriginsMatcher.test(origin)) {
+      //   res.setHeader('Access-Control-Allow-Origin', origin);
+      // }
+      res.setHeader('Access-Control-Allow-Origin', '*');
       res.setHeader('Access-Control-Allow-Credentials', true);
       next();
   });
